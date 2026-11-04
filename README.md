@@ -61,7 +61,7 @@ chapter 1: ok
 ```
 
 The volume runner prints every chapter and closes with the totals — for this build,
-20 chapters, 133 harnesses, 957 assertions, `volume: ok`, in about three minutes.
+20 chapters, 133 harnesses, 957 assertions, `volume: ok`, in three to four minutes.
 Each chapter writes its log to `chapterN/output/run_N.log`; the volume runner writes
 `output/run_offline.log`. No key and no network are needed: the listings that call a
 model are driven through a scripted client their harnesses install.
@@ -169,8 +169,18 @@ Windows has no `SIGALRM`. The suite runs without any of them.
 On Windows the same three lines are `.venv\Scripts\python -m pip install ./toolkit`
 and `.venv\Scripts\agent-audit`.
 
-It is validated twice: `tests/fixtures/trap/` must light every rule, and this
-repository — verified by 133 harnesses — must report zero findings.
+Pointed at this repository it reports findings, and that is correct: the rules are
+about agent code, so they also fire on the harnesses, which stub a model, and on
+`toolkit/tests/fixtures/trap/`, which exists to trip every rule. Scope it to what
+the rules are for:
+
+```bash
+.venv/bin/agent-audit . --exclude 'run_*.py' --exclude 'toolkit/*'
+# 149 files · 0 finding(s)
+```
+
+That is the second half of its validation: `tests/fixtures/trap/` must light every
+rule, and the book's listings must come out clean.
 
 ## Layout
 
