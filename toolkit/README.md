@@ -42,18 +42,6 @@ agent-audit ../.. --exclude 'run_*.py' --exclude '*/toolkit/*'
 ```
 
 It has been deliberately small: no plugin system, no config file, no dependencies
-outside the standard library. A rule is a function over an `ast` tree, and the
-list is data, so the book's appendix can be generated from the same source.
-
-## The book's appendix
-
-`build_appendix.py` renders the appendix of the book from the same rules:
-
-```bash
-python build_appendix.py            # print the section
-python build_appendix.py --write    # replace it in the manuscript
-python build_appendix.py --check    # fail when the book is out of date
-```
-
-The appendix uses indented code blocks instead of fences: a fenced block under an
-"appendix" heading would be read by the book's extractor as a listing it must run.
+outside the standard library. A rule is a function over an `ast` tree and the list
+is data, so adding a check means adding one entry — the CLI, the `--list` output
+and the explanation of the rule all come from it.

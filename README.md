@@ -4,10 +4,6 @@ Runnable code for *Python AI Autonomous Agents*. Each
 chapter folder holds one listing per example and exercise exactly as it appears in
 the book, plus a harness that drives it and asserts what happened.
 
-This folder is the **code-only copy**: the chapters, their harnesses and the
-runners. The manuscript, the figures and the EPUB build live one level up, in the
-writing folder.
-
 All twenty chapters are processed: see `chapter1/README.md` through
 `chapter20/README.md`.
 
@@ -200,11 +196,11 @@ run_live.sh                      the model-calling listings, against the real AP
 run_everything.sh                offline suite + queue + browser, --live for the run
 VERSION                          which build this folder is
 run_queue_demo.sh                chapter 18 against a real Redis and worker
-tools/                           repo-only helpers (demo builder, harness base)
+tools/                           shared helpers: harness base, fakes, demo builder
 ```
 
-Listings in `files/` are the book's listings byte for byte; corrections are written
-from `files/` into the manuscript, never the other way round.
+Each listing in `files/` is the text printed in the book, byte for byte; the
+`run_*.py` beside it is the harness that drives it, and it is not in the book.
 
 ## License
 
