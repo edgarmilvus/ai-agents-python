@@ -30,11 +30,9 @@ Written by the harness:
 
 ## Notes
 
-- The demo is generated, never hand-assembled:
-
-```bash
-python3 tools/build_chapter1_demo.py
-```
-
-- Exercises 1 and 2 use `random`, so their numbers differ between runs; the sequence of phases does not.
-- The four solutions coexist because each keeps its own function names. Two exercises defining the same name would silently shadow each other, which is why the file is generated and checked.
+- The demo is the four solutions assembled in one file, not rewritten: each keeps
+  its own function names, which is why they can coexist in one program.
+- Exercises 1 and 2 use `random`, so their numbers differ between runs; the sequence
+  of phases does not.
+- The harness checks that the demo still contains all four solutions, so an edit to
+  one of them that is not carried into the demo is caught.

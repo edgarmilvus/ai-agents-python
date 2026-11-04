@@ -198,7 +198,7 @@ run_live.sh                        the model-calling listings, against the real 
 run_everything.sh                  offline suite + services + live, skipping what is absent
 run_queue_demo.sh                  chapter 18 against a real Redis and worker
 run_offline.py                     the same suite without a POSIX shell
-tools/                             shared helpers: harness base, fakes, demo builder
+tools/                             shared helpers: harness base and scripted fakes
 VERSION                            the build these files come from
 ```
 
