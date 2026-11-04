@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-ai-agents-toolkit"
+version = "0.1.0"
+description = "The twelve agent failures of Python AI Autonomous Agents, as checks"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = []
+
+[project.scripts]
+agent-audit = "agent_audit.cli:main"
+
+[tool.setuptools]
+packages = ["agent_audit"]

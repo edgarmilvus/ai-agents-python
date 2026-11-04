@@ -1,0 +1,10 @@
+python-ai-agents — companion code for Python AI Autonomous Agents
+
+built     2026-11-02
+chapters  20
+harnesses 133
+assertions 957
+toolkit   agent-audit, 12 rules
+verified  macOS 14 (arm64) Python 3.11.16, and Windows 11 Python 3.11:
+          offline suite green on both
+          live run: 21 of 21 listings, 0 failures

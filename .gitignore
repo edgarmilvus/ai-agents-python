@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.backups/
+.DS_Store
+output/
+*.log
+manifest.json
+.pdf-build*

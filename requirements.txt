@@ -1,0 +1,31 @@
+# Pinned to the versions the harnesses were verified on.
+# langchain-core 1.x made `@tool` return a non-callable StructuredTool, which is
+# why the validation agent in chapter 1 invokes its tools instead of calling them.
+# Chapters 2 to 4 use the ReAct/AgentExecutor APIs, which live in
+# `langchain-classic` since LangChain 1.0; the listings import them from there.
+# Chapter 5 adds CrewAI, which pins openai 2.x and pydantic 2.12; both are held
+# here so every chapter of the volume runs against one stack.
+openai==2.54.0
+pydantic==2.12.5
+langchain-core==1.7.0
+langchain-classic==1.0.8
+langchain-community==0.4.2
+langchain-openai==1.7.3
+sqlalchemy==2.0.44
+requests==2.32.5
+crewai==1.15.30
+# Chapter 8 adds LangGraph for the cyclic state graphs.
+langgraph==1.2.18
+# Chapter 16 imports the LangSmith client directly; it arrives with
+# langchain-core, but the chapter's listings name it, so it is pinned here.
+langsmith==0.14.13
+# Chapter 18 adds the deployment stack: FastAPI for the wrapper, uvicorn
+# to serve it, and RQ + redis for the queue. The harnesses stub the queue,
+# so no Redis server is needed to run the suite.
+fastapi==0.162.0
+uvicorn==0.54.0
+redis==8.1.0
+rq==2.12.0
+# Chapter 19 counts tokens with the real tokenizer; it arrives with several
+# langchain packages, but the listings import it by name.
+tiktoken==0.14.0

@@ -1,0 +1,5 @@
+# Optional extras for running chapter 14 against a real browser.
+# The suite does not need them: it stubs Selenium with tools/fake_selenium.py.
+# Chrome (or Chromium) must be installed on the machine.
+selenium==4.51.0
+webdriver-manager==4.1.2
