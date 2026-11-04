@@ -53,24 +53,24 @@ a scripted client that their harnesses install. Each chapter writes its log to
 ## Live run
 
 The suites prove the code paths; the live run proves the prompts. It needs the key
-from Environment, and it spends money — about nine cents for the 21 rows on DeepSeek
+from Environment, and it spends money — about nine cents for the 21 listings on DeepSeek
 Flash, under half a dollar per run, fifteen to twenty minutes:
 
 ```bash
-./run_live.sh              # every row
+./run_live.sh              # every listing
 ./run_live.sh --only 2 16  # selected chapters
-./run_live.sh --list       # the rows, free
+./run_live.sh --list       # the listings, free
 ```
 
 It runs one or two listings per chapter that instantiates a model (1–8, 11, 16, 19),
 plus chapter 7's three exercise crews, each in its project's `output/` with its own
-timeout. A row passes when the process exits 0, prints something and shows no
-traceback; every row keeps its log in `output/live/`. Chapter 6's hierarchical crew
+timeout. A listing passes when the process exits 0, prints something and shows no
+traceback; each one keeps its log in `output/live/`. Chapter 6's hierarchical crew
 is in there and takes three to eleven minutes, depending on how often the manager
-delegates; `--slow` adds chapter 7's template, which runs four crews and takes over
-fifteen.
+delegates. `--slow` adds chapter 7's template, which runs four crews and takes over
+fifteen minutes: 23 listings instead of 21.
 
-Two chapters need a second service. Without it their rows are reported as `SKIP`,
+Two chapters need a second service. Without it those listings are reported as `SKIP`,
 naming the variable, and the run still ends clean:
 
 ```bash
@@ -95,7 +95,7 @@ Redis queue demo, the browser run, and with `--live` the live run at the end.
 
 ```bash
 ./run_everything.sh           # suite + services, live run skipped
-./run_everything.sh --live    # the same, then the 21 rows
+./run_everything.sh --live    # the same, then the 21 listings
 ```
 
 A phase whose service or package is missing is skipped with the command that
