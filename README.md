@@ -80,7 +80,11 @@ fetches the driver), chapter 18's queue demo needs a Redis server (Memurai insta
 one as a Windows service), and chapter 17 has no `SIGALRM`, so the budget is measured
 after the call instead of interrupting it. The suite itself runs without any of them.
 
-## Live run (costs money)
+## Live run
+
+It needs `OPENAI_COMPATIBLE_API_KEY` exported — without it the runner stops and says
+so — and it spends money: the 21 listings cost about nine cents on DeepSeek Flash,
+and a full run stays under half a dollar.
 
 The suites are offline on purpose. To prove the *prompts* against the real model,
 there is a second, manual runner:
