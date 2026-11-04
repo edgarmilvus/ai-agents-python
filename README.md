@@ -4,9 +4,6 @@ Runnable code for *Python AI Autonomous Agents*. Each
 chapter folder holds one listing per example and exercise exactly as it appears in
 the book, plus a harness that drives it and asserts what happened.
 
-All twenty chapters are processed: see `chapter1/README.md` through
-`chapter20/README.md`.
-
 ## Setup
 
 ```bash
