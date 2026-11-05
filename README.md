@@ -10,15 +10,23 @@ and checks what came back.
 You need Python 3.11 or 3.12 (3.13 is too new for some of the pinned packages).
 
 ```bash
-python3 -m venv .venv
+python3.11 -m venv .venv
+.venv/bin/python -m pip install --upgrade pip
 .venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python -m pip install -r requirements-browser.txt   # chapter 14, real browser
+.venv/bin/python -m pip install -r requirements-browser.txt
 ```
 
-The second file is the optional extra: Selenium and its driver manager, for chapter
-14's real browser run. The offline suite stubs Selenium, so leaving it out keeps all
-133 harnesses green; `run_everything.sh` skips that step, prints the command above
-and carries on.
+Use the interpreter by its version, not `python3`: on a Mac the system `python3` is
+often 3.9, and `openai` 2.54 needs 3.10 or newer, so the install stops with
+`Could not find a version that satisfies the requirement openai==2.54.0`. Substitute
+`python3.12` if that is the one you have.
+
+Activating the environment is optional: every command names the interpreter by path, so
+it works from any shell without `source .venv/bin/activate`.
+
+The second requirements file is the optional extra: Selenium and its driver manager, for
+chapter 14's real browser run. The offline suite stubs Selenium, so leaving it out keeps
+all 133 harnesses green; `run_everything.sh` skips that step and prints the command.
 
 ## Environment
 
