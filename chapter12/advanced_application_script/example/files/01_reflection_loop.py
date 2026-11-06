@@ -102,7 +102,7 @@ def generate_reflection_prompt(trace: Dict[str, Any], error: str) -> str:
 
 def execute_task_with_reflection(initial_task_prompt: str, max_retries: int = 3) -> Dict[str, Any]:
     """
-    Manages the execution flow, integrating error catching and the recursive reflection loop.
+    Manages the execution flow, integrating error catching and the iterative reflection loop.
     """
     current_attempt = 0
     current_ticker = "" # State variable modified by the reflection step

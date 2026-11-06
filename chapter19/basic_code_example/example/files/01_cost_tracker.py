@@ -116,7 +116,7 @@ async def main():
                     "toward highly optimized, low-latency models like GPT-4o and Claude 3 Opus. Understanding these "
                     "historical shifts is crucial for optimizing current agent workflows...")
     
-    # We repeat the context many times to simulate a 40,000 character input.
+    # The long context plus ten copies of the question comes to about 1,200 characters.
     prompt_2 = "Summarize the key economic trends in LLM pricing from 2020 to present." * 10 
     prompt_2 = long_context + prompt_2 # Ensure high token count
     

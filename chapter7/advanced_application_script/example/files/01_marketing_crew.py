@@ -111,7 +111,7 @@ project_crew = Crew(
     agents=[research_analyst, content_strategist, marketing_executive],
     tasks=[research_task, strategy_task, review_task],
     process=Process.sequential, # Tasks run strictly one after the other
-    verbose=True # Verbosity level 2 shows the internal reasoning of the agents
+    verbose=True # Prints each agent's internal reasoning as the task runs
 )
 
 print("--- Starting Collaborative Marketing Strategy Crew ---")
