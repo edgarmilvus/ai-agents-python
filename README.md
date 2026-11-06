@@ -128,6 +128,27 @@ installs it — Redis, Chrome, Selenium — and the closing summary lists what r
 what did not. That is why the script ends `ok` on a machine that has none of them,
 and why `--live` without a key is skipped instead of failing.
 
+For the live phase to run as well, every variable has to be exported at once: the three
+the listings read, the embeddings endpoint for chapter 11, and the LangSmith key for
+chapter 16. With any of them missing, those listings report `SKIP` and the run still ends
+`ok`.
+
+```bash
+export OPENAI_COMPATIBLE_BASE_URL="https://openrouter.ai/api/v1"
+export OPENAI_COMPATIBLE_MODEL="~deepseek/deepseek-flash-latest"
+export OPENAI_COMPATIBLE_API_KEY=...
+export EMBEDDING_BASE_URL="https://generativelanguage.googleapis.com/v1beta/openai/"
+export EMBEDDING_MODEL="gemini-embedding-2"
+export EMBEDDING_API_KEY=...
+export LANGCHAIN_API_KEY=...
+export LANGCHAIN_TRACING_V2=true
+./run_everything.sh --live
+```
+
+The first two lines carry the defaults the listings already have, so on OpenRouter only the
+keys are needed; they are written out so the block can be pasted as one piece.
+
+
 The two services on their own:
 
 ```bash
