@@ -26,7 +26,10 @@ it works from any shell without `source .venv/bin/activate`.
 
 The second requirements file is the optional extra: Selenium and its driver manager, for
 chapter 14's real browser run. The offline suite stubs Selenium, so leaving it out keeps
-all 133 harnesses green; `run_everything.sh` skips that step and prints the command.
+all 133 harnesses green. `run_everything.sh` then skips only the browser phase: it prints
+`skipped: selenium not installed` together with the exact
+`pip install -r requirements-browser.txt` command, lists the phase under `not run:` in the
+closing summary, and still exits 0.
 
 ## Environment
 
