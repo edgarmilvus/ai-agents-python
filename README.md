@@ -181,12 +181,25 @@ python -m venv .venv
 .venv\Scripts\python tools\live_runner.py --list
 ```
 
-`run_everything.sh` is a bash script: on Windows run the two commands it would chain
+`run_everything.sh` is a bash script. On Windows, run the two commands it would chain
 — `run_offline.py` and `tools\live_runner.py` — and add the services only if you want
-them. Chrome runs natively and Selenium Manager fetches the driver; Redis has no
-native server (Memurai installs one as a Windows service for chapter 18's demo);
-chapter 17 measures the overrun after the call instead of interrupting it, because
-Windows has no `SIGALRM`. The suite runs without any of them.
+them.
+
+Three platform differences, each with what it affects:
+
+- **Chrome** runs natively and Selenium Manager fetches the matching driver, so chapter
+  14's browser run works as it does on macOS.
+- **Redis** has no official Windows build, and chapter 18's queue demo is the one step
+  that needs one: `run_queue_demo.sh` starts `redis-server` itself. Memurai installs a
+  compatible server as a Windows service, but the demo calls the Linux `redis-server`
+  and `redis-cli` binaries by name, so on Windows it stops at
+  `redis-server not installed` and you skip it. The chapter's code is still exercised
+  offline: the harness replaces the queue with a fake and asserts the same job flow.
+- **Chapter 17's time budget** relies on `signal.SIGALRM`, which Windows does not have.
+  The decorator falls back to measuring elapsed time after the call: the overrun is
+  still reported, but a function that never returns cannot be interrupted.
+
+Everything except the queue demo runs without any of them.
 
 ## Toolkit
 
